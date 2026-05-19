@@ -21,6 +21,7 @@ import Image from "next/image";
 import { useIsMobile } from "@/core/hooks/useIsMobile";
 import { SearchBar } from "./SearchBar";
 import { ApiKeysTab } from "./ApiKeysTab";
+import { MentatHomeWorldToggle } from "./MentatHomeWorldToggle";
 import "./timeSelect.css";
 
 const REGIONS = [
@@ -205,20 +206,23 @@ export function Header() {
       <>
         <header className="header glass-panel">
           <div className="header__brand">
-            <a href="https://worldwideview.dev/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}>
+            <div style={{ textDecoration: "none", color: "inherit", cursor: "default" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <Image src="/logo/logo-icon.svg" alt="Logo" width={22} height={22} style={{ objectFit: "contain" }} />
-                <div className="header__logo">WORLD WIDE VIEW</div>
-                <span className="alpha-badge">ALPHA</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <path d="M12 7l5 5-5 5-5-5z"/>
+                </svg>
+                <div className="header__logo">MENTAT</div>
                 {isDemoAdmin && <span className="alpha-badge" style={{ background: "var(--accent-orange, #f59e0b)" }}>ADMIN</span>}
               </div>
-              <div className="header__subtitle">Geospatial Intelligence</div>
-            </a>
+              <div className="header__subtitle">World View</div>
+            </div>
             <div style={{ marginLeft: "var(--space-xl)" }}>
               <SearchBar />
             </div>
           </div>
           <div className="header__controls">
+            <MentatHomeWorldToggle />
             <div className="header__controls-scroll" ref={scrollContainerRef}>
               {REGIONS.map((r) => {
                         const Icon = r.icon;

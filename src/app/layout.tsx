@@ -12,8 +12,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "WorldWideView | Geospatial Intelligence",
-  description: "Next-generation, open-source geospatial intelligence platform.",
+  title: "Mentat | World View",
+  description: "World View — global geospatial intelligence layer of the Mentat platform.",
 };
 
 export default function RootLayout({

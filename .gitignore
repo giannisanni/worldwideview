@@ -87,6 +87,10 @@ packages/*/dist/
 local-plugins/*
 !local-plugins/.gitkeep
 !local-plugins/README.md
+# Mentat fork: this plugin is part of OUR repo, not a transient sandbox.
+!local-plugins/wwv-plugin-mentat-home/
+local-plugins/wwv-plugin-mentat-home/node_modules/
+local-plugins/wwv-plugin-mentat-home/dist/
 
 # git worktrees
 /.worktrees/

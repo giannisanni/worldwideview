@@ -297,7 +297,7 @@ export function FeedbackDialog() {
                   onChange={(e) => setAttachLogs(e.target.checked)}
                   className={styles.checkboxInput}
                 />
-                <span className={styles.checkboxLabel}>Attach WorldWideView diagnostic logs and information</span>
+                <span className={styles.checkboxLabel}>Attach Mentat diagnostic logs and information</span>
               </label>
             </div>
 
