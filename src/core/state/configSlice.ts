@@ -104,7 +104,11 @@ export const createConfigSlice: StateCreator<AppStore, [], [], ConfigSlice> = (s
         showFps: false,
         resolutionScale: 1.0,
         antiAliasing: "fxaa", // Default to fast FXAA
-        maxScreenSpaceError: 32, // Increase from 16 to 32 to significantly reduce 3D tile network requests and costs
+        // 48 keeps zoom responsive on typical laptop GPUs (Cesium's default
+        // is 16, which over-requests photorealistic tiles and stalls camera
+        // moves). Drop back to 16-32 from the Graphics Settings panel when
+        // you want sharper detail and your hardware can take the load.
+        maxScreenSpaceError: 48,
         shadowsEnabled: false,
         enableLighting: false,
         baseLayerId: (typeof window !== "undefined" && window.localStorage && typeof window.localStorage.getItem === "function") ? (localStorage.getItem("wwv_map_layer") || "google-3d") : "google-3d",
