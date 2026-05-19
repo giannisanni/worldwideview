@@ -4,7 +4,12 @@ const nextConfig: NextConfig = {
   output: "standalone",
   serverExternalPackages: ["@prisma/client", "prisma"],
   transpilePackages: ["@worldwideview/wwv-plugin-sdk", "resium", "react-player", "satellite.js", "@worldwideview/wwv-plugin-fortiguard", "@worldwideview/wwv-plugin-nz-traffic-cameras"],
-  allowedDevOrigins: process.env.ALLOWED_DEV_ORIGIN ? [process.env.ALLOWED_DEV_ORIGIN] : undefined,
+  // Comma-separated hostnames allowed to fetch Turbopack/HMR resources
+  // in dev. Required when running the dev server behind a non-localhost
+  // hostname (e.g. Tailscale MagicDNS: `substrate`, `substrate.tail*.ts.net`).
+  allowedDevOrigins: process.env.ALLOWED_DEV_ORIGIN
+    ? process.env.ALLOWED_DEV_ORIGIN.split(",").map(s => s.trim()).filter(Boolean)
+    : undefined,
   experimental: {
     memoryBasedWorkersCount: true,
     cpus: 2,
